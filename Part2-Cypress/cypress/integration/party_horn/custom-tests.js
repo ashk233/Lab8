@@ -26,5 +26,15 @@ describe('Party Horn Tests', () => {
     cy.get('#horn-sound').then($el => {
       expect($el).to.have.prop('volume',0.33)
     })
-  })
+  });
+
+  it('Image and sound sources change when party horn radio button is selected', () => {
+    cy.get('#radio-party-horn').check();
+    cy.get('#sound-image').then($el => {
+      expect($el).to.have.attr('src','./assets/media/images/party-horn.svg')
+    });
+    cy.get('#horn-sound').then($el => {
+      expect($el).to.have.attr('src','./assets/media/audio/party-horn.mp3')
+    });
+  });
 });
