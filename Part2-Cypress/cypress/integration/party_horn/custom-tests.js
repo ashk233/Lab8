@@ -12,5 +12,12 @@ describe('Party Horn Tests', () => {
     cy.get('#volume-slider').then($el => {
       expect($el).to.have.value(75);
     })
+  });
+
+  it('Volume input changes when slider changes', () => {
+    cy.get('#volume-slider').invoke('val',33).trigger('input');
+    cy.get('#volume-number').then($el => {
+      expect($el).to.have.value(33);
+    })
   })
 });
