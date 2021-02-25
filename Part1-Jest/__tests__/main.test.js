@@ -1,4 +1,4 @@
-const { formatVolumeIconPath } = require('../assets/scripts/main');
+const formatVolumeIconPath = require('../assets/scripts/main');
 describe('The volume icon path should be', () => {
     test('3', () => {
         expect(formatVolumeIconPath(80)).toMatch('3');
