@@ -70,4 +70,18 @@ describe('Party Horn Tests', () => {
       expect($el).to.have.attr('src','./assets/media/icons/volume-level-3.svg')
     });
   });
+
+  it('Honk button is disabled when textbox input is empty', () => {
+    cy.get('#volume-number').clear();
+    cy.get('#honk-btn').then($el => {
+      expect($el).to.have.attr('disabled')
+    });
+  });
+
+  it('Honk button is disabled when textbox input is non-number', () => {
+    cy.get('#volume-number').clear().type('a');
+    cy.get('#honk-btn').then($el => {
+      expect($el).to.have.attr('disabled')
+    });
+  });
 });
