@@ -84,4 +84,11 @@ describe('Party Horn Tests', () => {
       expect($el).to.have.attr('disabled')
     });
   });
+
+  it('Error shown when number input is out of range', () => {
+    cy.get('#volume-number').clear().type('101');
+    cy.get('input:invalid').then($el => {
+      expect($el).to.have.length(1);
+    })
+  })
 });
